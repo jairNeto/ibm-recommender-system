@@ -11,7 +11,7 @@
 ## Overview <a name="overview"></a>
 
 The goal of this project is to improve the IBM Watson articles recommendation.
-At this project you will find a notebook showing the implementantion of the
+At this project you will find a notebook showing the implementation of the
 3 types of recommendation approaches most used, also there is a python module,
 where you can find all the functions used at the notebook encapsulate and ready
 for you to use.
@@ -44,7 +44,7 @@ $ pip install -r requirements.txt
 
 The two csvs needed to run the notebook are at the data folder, but because the
 process to make a recommendation using NLP is expensive, the user could download
-the resulting csv at the link below and put the file at data folder.
+the resulting csv at the link below and put the file in the data folder.
 
  `https://drive.google.com/file/d/1jNjllAzcnM50nTHFJMx7Fv0QPVwm5d0R/view?usp=sharing`
 
@@ -70,4 +70,4 @@ recommender_template.py.
 Part of the code used is inspired from the Experimental Design & Recommendations
  module of the Udacity Nanodegree.
 Go ahead and contribute to this repository.
-the data was kindly provided by IBM Watson Studio Plataform
+the data was kindly provided by IBM Watson Studio Platform
