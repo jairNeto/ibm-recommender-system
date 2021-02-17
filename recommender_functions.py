@@ -261,14 +261,19 @@ def user_user_recs_part2(user_id, df, user_item, m=10):
     article_ids = np.array(article_ids)
     recs = []
     for _, col in neighbors_df.iterrows():
+        # At this function I did the sort by the articles
+        # with the most total interections
         article_neigh_ids, _ = get_user_articles(
             int(col['neighbor_id']), user_item, df=df)
         diff_movies = np.setdiff1d(np.array(article_neigh_ids), article_ids)
         num_missing_movies = m - len(recs)
         if len(diff_movies) > num_missing_movies:
             recs.extend(diff_movies[:num_missing_movies])
+            article_ids = \
+                np.append(article_ids, diff_movies[:num_missing_movies])
         else:
             recs.extend(diff_movies)
+            article_ids = np.append(article_ids, diff_movies)
 
         if len(recs) == m:
             break
