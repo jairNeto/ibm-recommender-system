@@ -116,23 +116,13 @@ def find_similar_users(user_id, user_item):
 
     '''
     # compute similarity of each user to the provided user
-    user_similarity_list = []
-    user_ids = user_item.index
-    for id in user_ids:
-        if id != user_id:
-            similarity = user_item.loc[id] @ user_item.loc[user_id]
-            user_similarity_list.append((id, similarity))
-
+    similar_mat = user_item.dot(user_item.loc[user_id].T)
     # sort by similarity
-    user_similarity_list = sorted(
-        user_similarity_list, key=lambda x: x[1], reverse=True)
+    most_similar_users = \
+        similar_mat.sort_values(ascending=False).index.tolist()
 
-    # create list of just the ids
-    most_similar_users = [u_id for u_id, _ in user_similarity_list]
+    most_similar_users.remove(user_id)
 
-    # remove the own user's id
-
-    # return a list of the users in order from most to least similar
     return most_similar_users
 
 
